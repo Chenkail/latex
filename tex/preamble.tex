@@ -1,0 +1,291 @@
+% -------- Packages --------
+% Color package - needs to go first because LaTeX is stupid
+\usepackage[dvipsnames]{xcolor}
+% Page arranging
+\usepackage{geometry}
+% American Mathematical Society packages
+\usepackage{amsmath, amsthm, amssymb, amscd}
+% Lists and list spacing
+\usepackage{enumerate}
+\usepackage{enumitem}
+% Reset align env counters
+\usepackage{etoolbox}
+% Bold math
+\usepackage{bm}
+% Spacing
+\usepackage{setspace}
+% Extends amsmath
+\usepackage{mathtools}
+% Create documents with multiple columns
+\usepackage{multicol}
+% Wrap text around figures
+\usepackage{wrapfig}
+% Extend array and tabular envs
+\usepackage{array}
+% Allow adjusting geometry on specific pages
+\usepackage{changepage}
+% Hyperlinks
+\usepackage{hyperref}
+% Tables
+\usepackage{array} % Required for several table packages
+\usepackage{supertabular} % Allows tables to extend across pages
+\usepackage{tabulary,booktabs} % Different kind of table
+\usepackage{multirow}
+
+
+% -------- Optional formatting --------
+% Set margins
+\geometry{margin=1in}
+
+% Increase height of table rows
+\def\arraystretch{1.4}
+
+% Increase spacing in multiline envs
+% \setlength{\jot}{2\jot}
+
+% Remove auto indent globally
+\setlength{\parindent}{0pt}
+
+% Reset align env counters - requires etoolbox package
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+
+
+% Hyperlink formatting - requires hyperref package
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+
+% -------- Theorems --------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+
+% -------- Replaced commands --------
+% Use bold math for vectors instead of the little arrow
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+% -------- New commands --------
+% Colors
+\newcommand{\black}{\color{black}}
+\newcommand{\blk}{\black}
+\newcommand{\white}{\color{white}}
+\newcommand{\purple}{\color{Plum}}
+
+% Text substitution
+\newcommand{\tif}{\text{if}}
+\newcommand{\tiff}{if and only if}
+\newcommand{\oto}{one-to-one}
+
+% Variables
+\newcommand{\xstar}{x_{\star}}
+
+% Blackboard math
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% Greek
+\newcommand{\ed}{\epsilon-\delta}
+
+% Formatting
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\braces}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\bracks}[1]{\left[ #1 \right]}
+\newcommand{\abracks}[1]{\left\langle #1 \right\rangle}
+\newcommand{\parens}[1]{\left(#1\right)}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\dbars}[1]{\left\lVert #1\right\rVert}
+
+% Specific functions
+\newcommand{\scomp}{^\mathsf{c}} % Set complement
+\newcommand{\limto}[2]{\lim\limits_{#1 \to #2}} % Better limits
+\newcommand{\sumto}[3]{\sum\limits_{#1 = #2}^{#3}} % Better sum
+\newcommand{\limxtoxo}{\limto{x}{x_0}} % Limit as x goes to x_0
+\newcommand{\limtoinf}[1]{\limto{#1}{\infty}} % Limit as some variable goes to infinity
+\newcommand{\limtoninf}[1]{\limto{#1}{-\infty}} % Limit as some variable goes to -infinity
+\newcommand{\limtopinf}[1]{\limto{#1}{+\infty}} % Limit as some variable goes to +infinity
+\newcommand{\limntoinf}{\limtoinf{n}} % Limit as n goes to infinity
+\newcommand{\limntoninf}{\limtoninf{n}} % Limit as n goes to -infinity
+\newcommand{\limntopinf}{\limtopinf{n}} % Limit as n goes to +infinity
+\newcommand{\sumztoinf}[1]{\sumto{#1}{0}{\infty}} % Sum from zero to infinity
+\newcommand{\sumnztoinf}{\sumztoinf{n}} % Sum of n from zero to infinity
+\newcommand{\sumotoinf}[1]{\sumto{#1}{1}{\infty}} % Sum from one to infinity
+\newcommand{\sumnotoinf}{\sumotoinf{n}} % Sum of n from one to infinity
+\newcommand{\liminfto}[2]{\liminf\limits_{#1 \to #2}} % Better lim inf
+\newcommand{\limsupto}[2]{\limsup\limits_{#1 \to #2}} % Better lim sup
+\newcommand{\liminftoinf}{\liminf\limits_{n \to \infty}} % Lim inf n to infinity
+\newcommand{\limsuptoinf}{\limsup\limits_{n \to \infty}} % Lim sup n to infinity
+
+% Upper/lower integrals
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+\newcommand{\intab}{\int_a^b}
+\newcommand{\upintab}{\upint_a^b}
+\newcommand{\lowintab}{\lowint_a^b}
+
+% More limits
+\newcommand{\xtoxo}{x\to x_0} % x -> x_0
+
+
+% Linear algebra
+\newcommand{\Rm}{$\R^m$}
+\newcommand{\Rn}{$\R^n$}
+\newcommand{\trmrn}{T\colon\R^m\rightarrow\R^n} % Transformation from Rm to Rn
+
+% Sequences
+\newcommand{\anj}{a_{n_j}} % a_n_j
+\newcommand{\ank}{a_{n_k}} % a_n_k
+\newcommand{\xnj}{x_{n_j}} % x_n_j
+\newcommand{\xnk}{x_{n_k}} % x_n_k
+\newcommand{\an}{\braces{a_n}} % Sequence notation {a_n}
+\newcommand{\bn}{\braces{b_n}} % Sequence notation {b_n}
+\newcommand{\cn}{\braces{c_n}} % Sequence notation {c_n}
+\newcommand{\sn}{\braces{s_n}} % Sequence notation {s_n}
+\newcommand{\xn}{\braces{x_n}} % Sequence notation {x_n}
+\newcommand{\Pn}{\braces{P_n}} % A sequence {P_n} of partitions
+
+% Functions and intervals
+\newcommand{\xy}{\left(x, y\right)} % (x, y)
+\newcommand{\abc}{\bracks{a,\,b}} % [a, b]
+\newcommand{\abo}{\parens{a,\,b}} % (a, b)
+\newcommand{\zonec}{[0, 1]}
+\newcommand{\zoneo}{(0, 1)}
+\newcommand{\zinfi}{[0,\infty)} % [0, infinity)
+\newcommand{\zinfe}{(0,\infty)} % (0, infinity)
+\newcommand{\infzi}{(-\infty, 0]} % (-infinity, 0]
+\newcommand{\infze}{(-\infty, 0)} % (-infinity, 0)
+\newcommand{\dtr}{D\to\R} % Function from D -> R
+\newcommand{\rtr}{\R\to\R} % Function from R -> R
+\newcommand{\im}{\text{im}} % Image of a function
+\newcommand{\imf}{\text{im}\, f}
+\newcommand{\dsubr}{D\subset\R}
+\newcommand{\isubr}{I\subset\R}
+\newcommand{\xoi}{x_0 \in I}
+
+\newcommand{\fx}{f(x)} % f(x)
+\newcommand{\gx}{g(x)} % g(x)
+\newcommand{\fxo}{f(x_0)} % f(x_0)
+\newcommand{\gxo}{g(x_0)} % f(x_0)
+\newcommand{\fxn}{f(x_n)} % f(x_n)
+\newcommand{\fy}{f(y)} % f(y)
+\newcommand{\gy}{g(y)} % g(y)
+\newcommand{\gfx}{g\parens{f(x)}} % g(f(x))
+\newcommand{\fog}{f\circ g} % f o g
+\newcommand{\gof}{g\circ f} % g o f
+\newcommand{\fogy}{f\circ g(y)} % f o g(y)
+\newcommand{\gofx}{g\circ f(x)} % g o f(x)
+\newcommand{\inv}{^{-1}}
+\newcommand{\finvx}{f\inv (x)} % f(x)
+\newcommand{\invp}[1]{\left(#1\right)^{-1}}
+\newcommand{\fabcr}{f\colon \bracks{a,\,b}\to\R} % A function f from [a,b] to the reals
+\newcommand{\fabor}{f\colon \parens{a,\,b}\to\R} % A function f from (a,b) to the reals
+\newcommand{\gabr}{g\colon \bracks{a,\,b}\to\R} % A function f from [a,b] to the reals
+\newcommand{\gabro}{g\colon \parens{a,\,b}\to\R} % A function f from (a,b) to the reals
+\newcommand{\fgabr}{f, g\colon \bracks{a,\,b}\to\R} % A function f from [a,b] to the reals
+\newcommand{\finvfr}[1]{f\inv\colon f(#1)\to\R}
+\newcommand{\frr}{f\colon \R\to\R} % A function f from the reals to the reals
+\newcommand{\grr}{g\colon \R\to\R} % A function g from the reals to the reals
+\newcommand{\fdr}{f\colon D\to\R} % A function f from the interval D to the reals
+\newcommand{\gdr}{g\colon D\to\R} % A function g from the interval D to the reals
+\newcommand{\fgdr}{f, g\colon D\to\R} % f, g from the interval D to the reals
+\newcommand{\fir}{f \colon I\to\R} % A function f from the interval I to the reals
+\newcommand{\gjr}{g \colon J\to\R} % A function g from the interval J to the reals
+\newcommand{\fgir}{f, g \colon I\to\R} % A function f from the interval I to the reals
+\newcommand{\fij}{f\colon I\to J} % A function f from the interval I to an interval J
+\newcommand{\gji}{g\colon J\to I} % A function g from the interval I to an interval J
+\newcommand{\fsr}{f\colon S\to\R} % A function f from the set S to the reals
+\newcommand{\gfdr}{g\circ f\colon D\to\R} % g of f from D to the reals
+\newcommand{\fnir}{f_n\colon I\to\R}
+
+
+\newcommand{\gammaabc}{\gamma \colon \abc}
+
+\newcommand{\partition}{\braces{x_0, x_1, \hdots, x_n}} % Definition of a partition
+
+% Derivative definition: (f(x) - f(x_0))/(x-x_0)
+\newcommand{\derivx}{\frac{f(x)-f(x_0)}{x-x_0}}
+
+% Integrals and Sums
+\newcommand{\lfp}{L(f, P)}
+\newcommand{\ufp}{U(f, P)}
+\newcommand{\lfpn}{L(f, P_n)}
+\newcommand{\ufpn}{U(f, P_n)}
+
+% Misc. shortcuts
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\dhalf}{\dfrac{1}{2}}
+\newcommand{\thalf}{\tfrac{1}{2}}
+\newcommand{\eqv}{\equiv}
+\newcommand{\ddx}{\frac{d}{dx}}
+
+% Spacing
+\newcommand{\mm}{\vspace{1mm}}
+\newcommand{\gap}{\vspace{3mm}}
+
+% Text boxes
+\usepackage[most]{tcolorbox}
+\newtcolorbox{textbox}[1][]{
+  sharp corners,
+  enhanced,
+  colback=white,
+  height=3cm,
+  attach title to upper,
+  #1
+}
+
+
+% -------- Larger stuff --------
+% -------- Align spacing fix --------
+% Increases spacing between lines in align envs when there are fractions
+% or other things increasing the size of lines
+\newlength\minalignvsep
+\minalignvsep.15em % Minimum space between lines in the align env
+
+\makeatletter
+\def\align@preamble{%
+   &\hfil
+    \setboxz@h{\@lign$\m@th\displaystyle{##}$}%
+    \ifnum\row@>\@ne
+    \ifdim\ht\z@>\ht\strutbox@
+    \dimen@\ht\z@
+    \advance\dimen@\minalignvsep
+    \ht\strutbox\dimen@
+    \fi\fi
+    \strut@
+    \ifmeasuring@\savefieldlength@\fi
+    \set@field
+    \tabskip\z@skip
+   &\setboxz@h{\@lign$\m@th\displaystyle{{}##}$}%
+    \ifnum\row@>\@ne
+    \ifdim\ht\z@>\ht\strutbox@
+    \dimen@\ht\z@
+    \advance\dimen@\minalignvsep
+    \ht\strutbox@\dimen@
+    \fi\fi
+    \strut@
+    \ifmeasuring@\savefieldlength@\fi
+    \set@field
+    \hfil
+    \tabskip\alignsep@
+}
+\makeatother
+
+% -------- End of align spacing fix --------
+
+% -------- End of large fixes section --------
+
+% -------- End template preamble --------
